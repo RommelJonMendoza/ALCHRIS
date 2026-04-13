@@ -1,0 +1,460 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Algin &amp; Christine — Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&family=Pinyon+Script&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════
+       LANDING — Envelope Scene
+  ═══════════════════════════════════════ -->
+    <section class="landing" id="landing">
+      <!-- Corner botanical accents -->
+      <svg
+        class="deco deco-tl"
+        viewBox="0 0 130 130"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <g fill="none" stroke="#6b4c2a" stroke-width="0.85" opacity="0.32">
+          <path d="M10,110 Q10,10 110,10" />
+          <path d="M10,85  Q35,35 85,10" />
+          <ellipse
+            cx="28"
+            cy="72"
+            rx="7"
+            ry="13"
+            transform="rotate(-42 28 72)"
+          />
+          <ellipse
+            cx="72"
+            cy="28"
+            rx="7"
+            ry="13"
+            transform="rotate(-42 72 28)"
+          />
+          <ellipse
+            cx="50"
+            cy="48"
+            rx="5"
+            ry="9"
+            transform="rotate(-42 50 48)"
+          />
+          <circle cx="10" cy="110" r="2.5" fill="#6b4c2a" stroke="none" />
+          <circle cx="110" cy="10" r="2.5" fill="#6b4c2a" stroke="none" />
+          <circle cx="50" cy="50" r="1.5" fill="#6b4c2a" stroke="none" />
+        </g>
+      </svg>
+      <svg
+        class="deco deco-tr"
+        viewBox="0 0 130 130"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <g
+          fill="none"
+          stroke="#6b4c2a"
+          stroke-width="0.85"
+          opacity="0.32"
+          transform="scale(-1,1) translate(-130,0)"
+        >
+          <path d="M10,110 Q10,10 110,10" />
+          <path d="M10,85  Q35,35 85,10" />
+          <ellipse
+            cx="28"
+            cy="72"
+            rx="7"
+            ry="13"
+            transform="rotate(-42 28 72)"
+          />
+          <ellipse
+            cx="72"
+            cy="28"
+            rx="7"
+            ry="13"
+            transform="rotate(-42 72 28)"
+          />
+          <ellipse
+            cx="50"
+            cy="48"
+            rx="5"
+            ry="9"
+            transform="rotate(-42 50 48)"
+          />
+          <circle cx="10" cy="110" r="2.5" fill="#6b4c2a" stroke="none" />
+          <circle cx="110" cy="10" r="2.5" fill="#6b4c2a" stroke="none" />
+        </g>
+      </svg>
+      <svg
+        class="deco deco-bl"
+        viewBox="0 0 130 130"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <g
+          fill="none"
+          stroke="#6b4c2a"
+          stroke-width="0.85"
+          opacity="0.32"
+          transform="scale(1,-1) translate(0,-130)"
+        >
+          <path d="M10,110 Q10,10 110,10" />
+          <path d="M10,85  Q35,35 85,10" />
+          <ellipse
+            cx="28"
+            cy="72"
+            rx="7"
+            ry="13"
+            transform="rotate(-42 28 72)"
+          />
+          <ellipse
+            cx="72"
+            cy="28"
+            rx="7"
+            ry="13"
+            transform="rotate(-42 72 28)"
+          />
+          <circle cx="10" cy="110" r="2.5" fill="#6b4c2a" stroke="none" />
+          <circle cx="110" cy="10" r="2.5" fill="#6b4c2a" stroke="none" />
+        </g>
+      </svg>
+      <svg
+        class="deco deco-br"
+        viewBox="0 0 130 130"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+      >
+        <g
+          fill="none"
+          stroke="#6b4c2a"
+          stroke-width="0.85"
+          opacity="0.32"
+          transform="rotate(180 65 65)"
+        >
+          <path d="M10,110 Q10,10 110,10" />
+          <path d="M10,85  Q35,35 85,10" />
+          <ellipse
+            cx="28"
+            cy="72"
+            rx="7"
+            ry="13"
+            transform="rotate(-42 28 72)"
+          />
+          <ellipse
+            cx="72"
+            cy="28"
+            rx="7"
+            ry="13"
+            transform="rotate(-42 72 28)"
+          />
+          <circle cx="10" cy="110" r="2.5" fill="#6b4c2a" stroke="none" />
+          <circle cx="110" cy="10" r="2.5" fill="#6b4c2a" stroke="none" />
+        </g>
+      </svg>
+
+      <div class="scene">
+        <!-- Cursive heading -->
+        <div class="invite-script">You are invited...</div>
+
+        <!-- Envelope -->
+        <div class="envelope-wrap">
+          <div class="envelope" id="envelope">
+            <!-- Flap -->
+            <div class="flap" id="flap"></div>
+            <!-- Wax seal -->
+            <button
+              class="seal"
+              id="seal"
+              aria-label="Click the seal to open the invitation"
+            >
+              <svg
+                class="seal-svg"
+                viewBox="0 0 120 120"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Irregular wax edge -->
+                <path
+                  d="M60,6 C74,3 88,11 97,21 C108,33 118,44 116,58 C114,71 106,80 98,89 C88,100 78,113 63,116 C50,119 36,112 26,103 C14,93 3,80 3,66 C3,52 11,39 20,29 C30,18 44,8 58,6 Z"
+                  fill="#4a2008"
+                />
+                <path
+                  d="M60,10 C73,7 86,15 94,25 C105,36 114,47 112,60 C110,72 103,80 95,89 C86,99 76,111 62,114 C50,117 37,110 28,101 C17,91 7,79 7,66 C7,53 14,41 23,31 C32,21 45,11 58,10 Z"
+                  fill="#6b2e0d"
+                />
+                <!-- Wax surface -->
+                <circle cx="60" cy="60" r="38" fill="#8b4513" />
+                <!-- Depth ring -->
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="35"
+                  fill="none"
+                  stroke="#5c2e0e"
+                  stroke-width="1.5"
+                />
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="31"
+                  fill="none"
+                  stroke="#5c2e0e"
+                  stroke-width="0.7"
+                  opacity="0.6"
+                />
+                <!-- Monogram -->
+                <text
+                  x="60"
+                  y="52"
+                  text-anchor="middle"
+                  font-family="'Pinyon Script', cursive"
+                  font-size="15"
+                  fill="#2e1004"
+                  opacity="0.85"
+                >
+                  A
+                </text>
+                <text
+                  x="60"
+                  y="64"
+                  text-anchor="middle"
+                  font-family="'EB Garamond', Georgia, serif"
+                  font-style="italic"
+                  font-size="8"
+                  fill="#2e1004"
+                  opacity="0.7"
+                  letter-spacing="2"
+                >
+                  &amp;
+                </text>
+                <text
+                  x="60"
+                  y="76"
+                  text-anchor="middle"
+                  font-family="'Pinyon Script', cursive"
+                  font-size="15"
+                  fill="#2e1004"
+                  opacity="0.85"
+                >
+                  C
+                </text>
+                <!-- Gloss -->
+                <ellipse
+                  cx="46"
+                  cy="40"
+                  rx="11"
+                  ry="6"
+                  fill="white"
+                  opacity="0.06"
+                  transform="rotate(-28 46 40)"
+                />
+              </svg>
+            </button>
+            <!-- Body -->
+            <div class="env-body">
+              <div class="fold-left"></div>
+              <div class="fold-right"></div>
+              <div class="fold-bottom"></div>
+            </div>
+          </div>
+        </div>
+        <p class="click-label">Click the seal to open</p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════
+       INVITATION CARD
+  ═══════════════════════════════════════ -->
+    <section class="invitation hidden" id="invitation">
+      <article class="inv-card">
+        <!-- Corner ornaments -->
+        <span class="corner tl"></span>
+        <span class="corner tr"></span>
+        <span class="corner bl"></span>
+        <span class="corner br"></span>
+
+        <!-- Inner card border -->
+        <div class="inv-inner-frame">
+          <!-- Top botanical -->
+          <svg
+            class="inv-botanical"
+            viewBox="0 0 300 56"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <g fill="none" stroke="#8b6340" stroke-width="0.9" opacity="0.6">
+              <line x1="0" y1="28" x2="92" y2="28" />
+              <line x1="208" y1="28" x2="300" y2="28" />
+              <path d="M92,28 Q110,8 150,12 Q190,8 208,28" stroke-width="0.8" />
+              <ellipse
+                cx="122"
+                cy="18"
+                rx="8"
+                ry="14"
+                transform="rotate(-28 122 18)"
+              />
+              <ellipse
+                cx="178"
+                cy="18"
+                rx="8"
+                ry="14"
+                transform="rotate(28 178 18)"
+              />
+              <ellipse cx="150" cy="8" rx="6" ry="11" />
+              <circle
+                cx="92"
+                cy="28"
+                r="2.2"
+                fill="#8b6340"
+                stroke="none"
+                opacity="0.7"
+              />
+              <circle
+                cx="208"
+                cy="28"
+                r="2.2"
+                fill="#8b6340"
+                stroke="none"
+                opacity="0.7"
+              />
+              <circle
+                cx="150"
+                cy="28"
+                r="2.8"
+                fill="#8b6340"
+                stroke="none"
+                opacity="0.7"
+              />
+            </g>
+          </svg>
+
+          <p class="inv-request">#TINadhanaParaKayALGIN</p>
+          <div class="inv-rule"></div>
+
+          <h1 class="inv-name">Algin</h1>
+          <p class="inv-amp">&amp;</p>
+          <h1 class="inv-name">Christine</h1>
+
+          <div class="inv-rule"></div>
+
+          <p class="inv-together">the wedding</p>
+
+          <div class="inv-ornament-row">
+            <span class="orn-line"></span>
+            <span class="orn-diamond">◆</span>
+            <span class="orn-line"></span>
+          </div>
+
+          <div class="inv-details-row">
+            <div class="inv-detail-block">
+              <span class="detail-label">Date</span>
+              <span class="detail-value">Saturday, [Date]</span>
+            </div>
+            <span class="detail-dot">·</span>
+            <div class="inv-detail-block">
+              <span class="detail-label">Time</span>
+              <span class="detail-value">[Time]</span>
+            </div>
+          </div>
+
+          <div class="inv-venue-block">
+            <span class="detail-label">Venue</span>
+            <span class="detail-value venue-name">[Venue Name]</span>
+            <span class="detail-address">[Address], Philippines</span>
+          </div>
+
+          <div class="inv-rule"></div>
+
+          <p class="inv-footer">Reception to follow immediately after</p>
+
+          <!-- Bottom botanical (flipped) -->
+          <svg
+            class="inv-botanical"
+            viewBox="0 0 300 56"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            style="transform: scaleY(-1)"
+          >
+            <g fill="none" stroke="#8b6340" stroke-width="0.9" opacity="0.6">
+              <line x1="0" y1="28" x2="92" y2="28" />
+              <line x1="208" y1="28" x2="300" y2="28" />
+              <path d="M92,28 Q110,8 150,12 Q190,8 208,28" stroke-width="0.8" />
+              <ellipse
+                cx="122"
+                cy="18"
+                rx="8"
+                ry="14"
+                transform="rotate(-28 122 18)"
+              />
+              <ellipse
+                cx="178"
+                cy="18"
+                rx="8"
+                ry="14"
+                transform="rotate(28 178 18)"
+              />
+              <ellipse cx="150" cy="8" rx="6" ry="11" />
+              <circle
+                cx="92"
+                cy="28"
+                r="2.2"
+                fill="#8b6340"
+                stroke="none"
+                opacity="0.7"
+              />
+              <circle
+                cx="208"
+                cy="28"
+                r="2.2"
+                fill="#8b6340"
+                stroke="none"
+                opacity="0.7"
+              />
+              <circle
+                cx="150"
+                cy="28"
+                r="2.8"
+                fill="#8b6340"
+                stroke="none"
+                opacity="0.7"
+              />
+            </g>
+          </svg>
+
+          <button class="rsvp-btn" onclick="alert('RSVP coming soon!')">
+            R.S.V.P.
+          </button>
+        </div>
+        <!-- /.inv-inner-frame -->
+      </article>
+    </section>
+
+    <script>
+      const seal = document.getElementById("seal");
+      const landing = document.getElementById("landing");
+      const invitation = document.getElementById("invitation");
+      const flap = document.getElementById("flap");
+      const envelope = document.getElementById("envelope");
+
+      seal.addEventListener("click", () => {
+        flap.classList.add("open");
+        envelope.classList.add("opening");
+        setTimeout(() => {
+          landing.classList.add("fade-out");
+        }, 650);
+        setTimeout(() => {
+          landing.style.display = "none";
+          invitation.classList.remove("hidden");
+          invitation.classList.add("reveal");
+        }, 1300);
+      });
+    </script>
+  </body>
+</html>
