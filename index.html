@@ -11,11 +11,39 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <style>
+      @media screen and (orientation: landscape) and (max-height: 500px) {
+        body::before {
+          content: "Please rotate your device to portrait mode ↩";
+          position: fixed;
+          inset: 0;
+          z-index: 9999;
+          background: #f7f2eb;
+          color: #4a2c14;
+          font-family: Georgia, serif;
+          font-style: italic;
+          font-size: 1.2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding: 2rem;
+        }
+        body > * {
+          visibility: hidden;
+        }
+      }
+    </style>
   </head>
   <body>
+    <script>
+      if (screen.orientation && screen.orientation.lock) {
+        screen.orientation.lock("portrait").catch(() => {});
+      }
+    </script>
     <!-- ═══════════════════════════════════════
-       LANDING — Envelope Scene
-  ═══════════════════════════════════════ -->
+         LANDING — Envelope Scene
+    ═══════════════════════════════════════ -->
     <section class="landing" id="landing">
       <!-- Corner botanical accents -->
       <svg
@@ -161,15 +189,11 @@
       </svg>
 
       <div class="scene">
-        <!-- Cursive heading -->
         <div class="invite-script">You are invited...</div>
 
-        <!-- Envelope -->
         <div class="envelope-wrap">
           <div class="envelope" id="envelope">
-            <!-- Flap -->
             <div class="flap" id="flap"></div>
-            <!-- Wax seal -->
             <button
               class="seal"
               id="seal"
@@ -180,7 +204,6 @@
                 viewBox="0 0 120 120"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <!-- Irregular wax edge -->
                 <path
                   d="M60,6 C74,3 88,11 97,21 C108,33 118,44 116,58 C114,71 106,80 98,89 C88,100 78,113 63,116 C50,119 36,112 26,103 C14,93 3,80 3,66 C3,52 11,39 20,29 C30,18 44,8 58,6 Z"
                   fill="#4a2008"
@@ -189,9 +212,7 @@
                   d="M60,10 C73,7 86,15 94,25 C105,36 114,47 112,60 C110,72 103,80 95,89 C86,99 76,111 62,114 C50,117 37,110 28,101 C17,91 7,79 7,66 C7,53 14,41 23,31 C32,21 45,11 58,10 Z"
                   fill="#6b2e0d"
                 />
-                <!-- Wax surface -->
                 <circle cx="60" cy="60" r="38" fill="#8b4513" />
-                <!-- Depth ring -->
                 <circle
                   cx="60"
                   cy="60"
@@ -209,7 +230,6 @@
                   stroke-width="0.7"
                   opacity="0.6"
                 />
-                <!-- Monogram -->
                 <text
                   x="60"
                   y="52"
@@ -245,7 +265,6 @@
                 >
                   C
                 </text>
-                <!-- Gloss -->
                 <ellipse
                   cx="46"
                   cy="40"
@@ -257,7 +276,6 @@
                 />
               </svg>
             </button>
-            <!-- Body -->
             <div class="env-body">
               <div class="fold-left"></div>
               <div class="fold-right"></div>
@@ -270,173 +288,851 @@
     </section>
 
     <!-- ═══════════════════════════════════════
-       INVITATION CARD
-  ═══════════════════════════════════════ -->
+         INVITATION — Full-Screen Photo Hero
+    ═══════════════════════════════════════ -->
     <section class="invitation hidden" id="invitation">
-      <article class="inv-card">
-        <!-- Corner ornaments -->
-        <span class="corner tl"></span>
-        <span class="corner tr"></span>
-        <span class="corner bl"></span>
-        <span class="corner br"></span>
+      <!-- Full-screen photo background — scrolls with page -->
+      <div class="hero-bg">
+        <!-- Subtle gradient overlay inside the photo div -->
+        <div class="hero-bg-overlay"></div>
 
-        <!-- Inner card border -->
-        <div class="inv-inner-frame">
-          <!-- Top botanical -->
-          <svg
-            class="inv-botanical"
-            viewBox="0 0 300 56"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-          >
-            <g fill="none" stroke="#8b6340" stroke-width="0.9" opacity="0.6">
-              <line x1="0" y1="28" x2="92" y2="28" />
-              <line x1="208" y1="28" x2="300" y2="28" />
-              <path d="M92,28 Q110,8 150,12 Q190,8 208,28" stroke-width="0.8" />
-              <ellipse
-                cx="122"
-                cy="18"
-                rx="8"
-                ry="14"
-                transform="rotate(-28 122 18)"
-              />
-              <ellipse
-                cx="178"
-                cy="18"
-                rx="8"
-                ry="14"
-                transform="rotate(28 178 18)"
-              />
-              <ellipse cx="150" cy="8" rx="6" ry="11" />
-              <circle
-                cx="92"
-                cy="28"
-                r="2.2"
-                fill="#8b6340"
-                stroke="none"
-                opacity="0.7"
-              />
-              <circle
-                cx="208"
-                cy="28"
-                r="2.2"
-                fill="#8b6340"
-                stroke="none"
-                opacity="0.7"
-              />
-              <circle
-                cx="150"
-                cy="28"
-                r="2.8"
-                fill="#8b6340"
-                stroke="none"
-                opacity="0.7"
-              />
-            </g>
-          </svg>
+        <!-- Top overlay: names only -->
+        <div class="hero-top">
+          <div class="hero-hashtag">#TINadhanaParaKayALGIN</div>
+          <div class="hero-name-rule"></div>
 
-          <p class="inv-request">#TINadhanaParaKayALGIN</p>
-          <div class="inv-rule"></div>
-
-          <h1 class="inv-name">Algin</h1>
-          <p class="inv-amp">&amp;</p>
-          <h1 class="inv-name">Christine</h1>
-
-          <div class="inv-rule"></div>
-
-          <p class="inv-together">the wedding</p>
-
-          <div class="inv-ornament-row">
-            <span class="orn-line"></span>
-            <span class="orn-diamond">◆</span>
-            <span class="orn-line"></span>
-          </div>
-
-          <div class="inv-details-row">
-            <div class="inv-detail-block">
-              <span class="detail-label">Date</span>
-              <span class="detail-value">Saturday, [Date]</span>
-            </div>
-            <span class="detail-dot">·</span>
-            <div class="inv-detail-block">
-              <span class="detail-label">Time</span>
-              <span class="detail-value">[Time]</span>
-            </div>
-          </div>
-
-          <div class="inv-venue-block">
-            <span class="detail-label">Venue</span>
-            <span class="detail-value venue-name">[Venue Name]</span>
-            <span class="detail-address">[Address], Philippines</span>
-          </div>
-
-          <div class="inv-rule"></div>
-
-          <p class="inv-footer">Reception to follow immediately after</p>
-
-          <!-- Bottom botanical (flipped) -->
-          <svg
-            class="inv-botanical"
-            viewBox="0 0 300 56"
-            xmlns="http://www.w3.org/2000/svg"
-            aria-hidden="true"
-            style="transform: scaleY(-1)"
-          >
-            <g fill="none" stroke="#8b6340" stroke-width="0.9" opacity="0.6">
-              <line x1="0" y1="28" x2="92" y2="28" />
-              <line x1="208" y1="28" x2="300" y2="28" />
-              <path d="M92,28 Q110,8 150,12 Q190,8 208,28" stroke-width="0.8" />
-              <ellipse
-                cx="122"
-                cy="18"
-                rx="8"
-                ry="14"
-                transform="rotate(-28 122 18)"
-              />
-              <ellipse
-                cx="178"
-                cy="18"
-                rx="8"
-                ry="14"
-                transform="rotate(28 178 18)"
-              />
-              <ellipse cx="150" cy="8" rx="6" ry="11" />
-              <circle
-                cx="92"
-                cy="28"
-                r="2.2"
-                fill="#8b6340"
-                stroke="none"
-                opacity="0.7"
-              />
-              <circle
-                cx="208"
-                cy="28"
-                r="2.2"
-                fill="#8b6340"
-                stroke="none"
-                opacity="0.7"
-              />
-              <circle
-                cx="150"
-                cy="28"
-                r="2.8"
-                fill="#8b6340"
-                stroke="none"
-                opacity="0.7"
-              />
-            </g>
-          </svg>
-
-          <button class="rsvp-btn" onclick="alert('RSVP coming soon!')">
-            R.S.V.P.
-          </button>
+          <h1 class="hero-name-line">
+            <span class="hero-name">Algin</span>
+            <span class="hero-amp">&</span>
+            <span class="hero-name">Christine</span>
+          </h1>
+          <div class="hero-name-rule"></div>
         </div>
-        <!-- /.inv-inner-frame -->
-      </article>
+
+        <!-- Bottom overlay: verse + RSVP button -->
+        <div class="hero-bottom">
+          <div class="hero-verse-wrap">
+            <div class="hero-verse-rule"></div>
+            <p class="hero-verse">
+              "When the time is right, I, the Lord,<br />will make it happen."
+            </p>
+            <p class="hero-verse-ref">— Isaiah 60:22</p>
+            <div class="hero-verse-rule"></div>
+          </div>
+          <a
+            class="hero-rsvp-btn"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdm4x2xyFYzFSFG9CU02Pah6vQJbuOL8OzrnFGkgm_11vfADQ/viewform"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span>RSVP</span>
+          </a>
+        </div>
+      </div>
+      <!-- /.hero-bg -->
+
+      <!-- ── Countdown Section ── -->
+      <div class="countdown-section" id="countdownSection">
+        <p class="countdown-prelude">We're getting married</p>
+        <div class="countdown-wedding-date">May 07, 2026</div>
+        <div class="countdown-day-time">Thursday · 2:00 PM</div>
+        <div class="countdown-rule"></div>
+
+        <div class="countdown-timer" id="countdownTimer">
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cdDays">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cdHours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cdMins">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <span class="countdown-sep">:</span>
+          <div class="countdown-unit">
+            <span class="countdown-num" id="cdSecs">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+        <p class="countdown-done-msg" id="countdownDone">Today is the day! ♥</p>
+      </div>
+
+      <!-- ── Venue Section ── -->
+      <div class="venue-section">
+        <!-- Section header -->
+        <div class="venue-header">
+          <p class="venue-prelude">
+            You are warmly invited to celebrate with us at
+          </p>
+          <div class="venue-header-rule">
+            <span></span>
+            <svg
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M10 1 L11.5 6.5 L17 6.5 L12.5 10 L14 15.5 L10 12.5 L6 15.5 L7.5 10 L3 6.5 L8.5 6.5 Z"
+                fill="currentColor"
+              />
+            </svg>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- ── Ceremony Polaroid ── -->
+        <div class="vp-wrap vp-ceremony">
+          <div class="vp-label-tab">Ceremony</div>
+          <div class="vp-polaroid" style="transform: rotate(-2.2deg)">
+            <div class="vp-photo">
+              <img
+                src="images/church.png"
+                alt="St. Vincent Ferrer Parish Church"
+                loading="lazy"
+              />
+            </div>
+            <div class="vp-caption-area">
+              <div class="vp-name">St. Vincent Ferrer</div>
+              <div class="vp-sub">Parish Church</div>
+            </div>
+          </div>
+          <div class="vp-info">
+            <div class="vp-info-row">
+              <svg
+                class="vp-info-icon"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span>St. Vincent Ferrer Parish Church</span>
+            </div>
+            <div class="vp-info-row">
+              <svg
+                class="vp-info-icon"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="0"
+                />
+                <path
+                  d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span>2:00 in the afternoon</span>
+            </div>
+            <a
+              class="vp-map-btn"
+              href="https://www.google.com/maps?vet=10CAAQoqAOahcKEwiwm8Su9PGTAxUAAAAAHQAAAAAQBg..i&pvq=CgsvZy8xdHZ5ajhwbCIlCh9zdCB2aW5jZW50IGZlcnJlciBwYXJpc2ggY2h1cmNoEAIYAw&lqi=Ch9zdCB2aW5jZW50IGZlcnJlciBwYXJpc2ggY2h1cmNoSLLF4K7ngICACFo1EAAQARACEAMQBBgAGAEYAhgDGAQiH3N0IHZpbmNlbnQgZmVycmVyIHBhcmlzaCBjaHVyY2iSAQ9jYXRob2xpY19jaHVyY2g&fvr=1&cs=1&um=1&ie=UTF-8&fb=1&gl=ph&sa=X&ftid=0x3397296f889cd03f:0x2c4a92bb1d560194"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  fill="currentColor"
+                />
+              </svg>
+              Open in Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- connector -->
+        <div class="venue-flow-connector">
+          <div class="vfc-dot"></div>
+          <div class="vfc-line"></div>
+          <div class="vfc-text">Reception to follow</div>
+          <div class="vfc-line"></div>
+          <div class="vfc-dot"></div>
+        </div>
+
+        <!-- ── Reception Polaroid ── -->
+        <div class="vp-wrap vp-reception">
+          <div class="vp-label-tab">Reception</div>
+          <div class="vp-polaroid" style="transform: rotate(1.8deg)">
+            <div class="vp-photo vp-photo-placeholder">
+              <img
+                src="images/resort.png"
+                alt="Juana Jam's Garden Resort"
+                loading="lazy"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.querySelector(
+                    '.vp-placeholder-inner',
+                  ).style.display = 'flex';
+                "
+              />
+              <div class="vp-placeholder-inner" style="display: none">
+                <svg
+                  width="48"
+                  height="48"
+                  viewBox="0 0 48 48"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                >
+                  <circle cx="24" cy="18" r="7" fill="#c4a882" opacity="0.5" />
+                  <ellipse
+                    cx="24"
+                    cy="34"
+                    rx="13"
+                    ry="9"
+                    fill="#c4a882"
+                    opacity="0.35"
+                  />
+                </svg>
+                <span>Photo coming soon</span>
+              </div>
+            </div>
+            <div class="vp-caption-area">
+              <div class="vp-name">Juana Jam's</div>
+              <div class="vp-sub">Garden Resort</div>
+            </div>
+          </div>
+          <div class="vp-info">
+            <div class="vp-info-row">
+              <svg
+                class="vp-info-icon"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span
+                >Brgy. Pula, General Mamerto Natividad<br />Nueva Ecija,
+                Philippines</span
+              >
+            </div>
+            <div class="vp-info-row">
+              <svg
+                class="vp-info-icon"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67V7z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span>Immediately after the ceremony</span>
+            </div>
+            <a
+              class="vp-map-btn"
+              href="https://www.google.com/maps/place/HX28%2BRQG+Juanajam's+Garden+Resort,+Brgy,+Pula,+General+Mamerto+Natividad,+Nueva+Ecija/data=!4m2!3m1!1s0x33972b47d900a0ad:0x5e6378c93ddf5c70?utm_source=mstt_1&entry=gps&coh=192189&g_ep=CAESBjI1LjMuMRgAIJ6dCio_LDk0Mjg0NDYwLDk0MjA3Mzk0LDk0MjA3NTA2LDk0MjA4NTA2LDk0MjE4NjUzLDk0MjI5ODM5LDk0Mjc1MTY4QgJQSA%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg
+                width="13"
+                height="13"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
+                  fill="currentColor"
+                />
+              </svg>
+              Open in Maps
+            </a>
+          </div>
+        </div>
+
+        <!-- bottom flourish -->
+        <div class="venue-footer-rule">
+          <span></span>
+          <svg
+            viewBox="0 0 40 14"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path
+              d="M0,7 Q10,0 20,7 Q30,14 40,7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="0.8"
+              opacity="0.5"
+            />
+          </svg>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Scrapbook kit (kept for future use, hidden) -->
+      <div class="kit-wrap kit-wrap-hidden" id="kitWrap">
+        <!-- Floral decorations -->
+        <svg
+          class="kit-floral kit-floral-tr"
+          viewBox="0 0 110 110"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <g opacity="0.55">
+            <circle cx="55" cy="22" r="6" fill="#f7c8d8" />
+            <circle cx="55" cy="22" r="3" fill="#f0a0b8" />
+            <ellipse
+              cx="44"
+              cy="29"
+              rx="6"
+              ry="10"
+              transform="rotate(-35 44 29)"
+              fill="#f7c8d8"
+              opacity="0.8"
+            />
+            <ellipse
+              cx="66"
+              cy="29"
+              rx="6"
+              ry="10"
+              transform="rotate(35 66 29)"
+              fill="#f7c8d8"
+              opacity="0.8"
+            />
+            <ellipse
+              cx="40"
+              cy="18"
+              rx="5"
+              ry="9"
+              transform="rotate(-65 40 18)"
+              fill="#fad8e8"
+              opacity="0.7"
+            />
+            <ellipse
+              cx="70"
+              cy="18"
+              rx="5"
+              ry="9"
+              transform="rotate(65 70 18)"
+              fill="#fad8e8"
+              opacity="0.7"
+            />
+            <line
+              x1="55"
+              y1="28"
+              x2="55"
+              y2="55"
+              stroke="#6b8c54"
+              stroke-width="1.2"
+            />
+            <ellipse
+              cx="44"
+              cy="42"
+              rx="10"
+              ry="5"
+              transform="rotate(-30 44 42)"
+              fill="#8ab870"
+              opacity="0.6"
+            />
+            <ellipse
+              cx="66"
+              cy="42"
+              rx="10"
+              ry="5"
+              transform="rotate(30 66 42)"
+              fill="#8ab870"
+              opacity="0.6"
+            />
+            <circle cx="80" cy="55" r="5" fill="#f9d8b0" />
+            <circle cx="80" cy="55" r="2.5" fill="#f0b870" />
+            <ellipse
+              cx="74"
+              cy="62"
+              rx="5"
+              ry="8"
+              transform="rotate(-20 74 62)"
+              fill="#f9d8b0"
+              opacity="0.75"
+            />
+            <ellipse
+              cx="86"
+              cy="48"
+              rx="5"
+              ry="8"
+              transform="rotate(20 86 48)"
+              fill="#f9d8b0"
+              opacity="0.75"
+            />
+            <ellipse
+              cx="70"
+              cy="52"
+              rx="5"
+              ry="8"
+              transform="rotate(-50 70 52)"
+              fill="#f9e0c0"
+              opacity="0.65"
+            />
+            <ellipse
+              cx="90"
+              cy="58"
+              rx="5"
+              ry="8"
+              transform="rotate(50 90 58)"
+              fill="#f9e0c0"
+              opacity="0.65"
+            />
+          </g>
+        </svg>
+
+        <svg
+          class="kit-floral kit-floral-bl"
+          viewBox="0 0 90 90"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <g opacity="0.5">
+            <circle cx="45" cy="35" r="5" fill="#d8e8c8" />
+            <circle cx="45" cy="35" r="2.5" fill="#a8c880" />
+            <ellipse
+              cx="36"
+              cy="40"
+              rx="5"
+              ry="9"
+              transform="rotate(-30 36 40)"
+              fill="#d8e8c8"
+              opacity="0.8"
+            />
+            <ellipse
+              cx="54"
+              cy="40"
+              rx="5"
+              ry="9"
+              transform="rotate(30 54 40)"
+              fill="#d8e8c8"
+              opacity="0.8"
+            />
+            <ellipse
+              cx="33"
+              cy="28"
+              rx="4"
+              ry="8"
+              transform="rotate(-60 33 28)"
+              fill="#e0ecd4"
+              opacity="0.7"
+            />
+            <ellipse
+              cx="57"
+              cy="28"
+              rx="4"
+              ry="8"
+              transform="rotate(60 57 28)"
+              fill="#e0ecd4"
+              opacity="0.7"
+            />
+            <line
+              x1="45"
+              y1="40"
+              x2="45"
+              y2="65"
+              stroke="#7aa060"
+              stroke-width="1.1"
+            />
+            <ellipse
+              cx="36"
+              cy="54"
+              rx="9"
+              ry="4"
+              transform="rotate(-25 36 54)"
+              fill="#90b878"
+              opacity="0.55"
+            />
+            <ellipse
+              cx="54"
+              cy="54"
+              rx="9"
+              ry="4"
+              transform="rotate(25 54 54)"
+              fill="#90b878"
+              opacity="0.55"
+            />
+            <circle cx="20" cy="20" r="4" fill="#f7c8d8" />
+            <circle cx="20" cy="20" r="2" fill="#f0a0b8" />
+            <ellipse
+              cx="14"
+              cy="26"
+              rx="4"
+              ry="7"
+              transform="rotate(-35 14 26)"
+              fill="#f7c8d8"
+              opacity="0.7"
+            />
+            <ellipse
+              cx="26"
+              cy="26"
+              rx="4"
+              ry="7"
+              transform="rotate(35 26 26)"
+              fill="#f7c8d8"
+              opacity="0.7"
+            />
+          </g>
+        </svg>
+
+        <svg
+          class="kit-floral kit-floral-br"
+          viewBox="0 0 80 80"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <g opacity="0.45">
+            <circle cx="40" cy="30" r="5" fill="#e8d8f0" />
+            <circle cx="40" cy="30" r="2.5" fill="#c0a0d8" />
+            <ellipse
+              cx="32"
+              cy="37"
+              rx="5"
+              ry="8"
+              transform="rotate(-30 32 37)"
+              fill="#e8d8f0"
+              opacity="0.8"
+            />
+            <ellipse
+              cx="48"
+              cy="37"
+              rx="5"
+              ry="8"
+              transform="rotate(30 48 37)"
+              fill="#e8d8f0"
+              opacity="0.8"
+            />
+            <ellipse
+              cx="29"
+              cy="24"
+              rx="4"
+              ry="8"
+              transform="rotate(-60 29 24)"
+              fill="#ede4f8"
+              opacity="0.7"
+            />
+            <ellipse
+              cx="51"
+              cy="24"
+              rx="4"
+              ry="8"
+              transform="rotate(60 51 24)"
+              fill="#ede4f8"
+              opacity="0.7"
+            />
+            <line
+              x1="40"
+              y1="35"
+              x2="40"
+              y2="58"
+              stroke="#8870a8"
+              stroke-width="1"
+            />
+            <ellipse
+              cx="30"
+              cy="50"
+              rx="9"
+              ry="4"
+              transform="rotate(-20 30 50)"
+              fill="#a888c0"
+              opacity="0.5"
+            />
+            <ellipse
+              cx="50"
+              cy="50"
+              rx="9"
+              ry="4"
+              transform="rotate(20 50 50)"
+              fill="#a888c0"
+              opacity="0.5"
+            />
+          </g>
+        </svg>
+
+        <!-- Envelope at top -->
+        <div class="kit-envelope">
+          <div class="kit-env-flap"></div>
+          <div class="kit-env-wax">A&amp;C</div>
+          <div class="kit-env-lining">with love, sealed for you</div>
+        </div>
+
+        <!-- Hero Polaroid -->
+        <div
+          class="kit-polaroid-hero kit-object"
+          id="heroPolaroid"
+          onclick="openPanel('couple')"
+        >
+          <div class="kit-photo-area">
+            <svg
+              width="160"
+              height="160"
+              viewBox="0 0 160 160"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <ellipse
+                cx="80"
+                cy="90"
+                rx="55"
+                ry="60"
+                fill="#c8b498"
+                opacity="0.5"
+              />
+              <ellipse
+                cx="60"
+                cy="72"
+                rx="18"
+                ry="22"
+                fill="#b8a080"
+                opacity="0.6"
+              />
+              <ellipse
+                cx="100"
+                cy="72"
+                rx="18"
+                ry="22"
+                fill="#b8a080"
+                opacity="0.6"
+              />
+              <circle cx="60" cy="58" r="14" fill="#c8a878" opacity="0.7" />
+              <circle cx="100" cy="58" r="14" fill="#c8a878" opacity="0.7" />
+            </svg>
+            <div class="kit-couple-overlay">
+              <div class="kit-couple-script">Algin</div>
+              <div class="kit-couple-amp">&amp;</div>
+              <div class="kit-couple-script">Christine</div>
+            </div>
+          </div>
+          <div class="kit-polaroid-caption">forever begins · May 2026</div>
+        </div>
+
+        <!-- Ceremony Card -->
+        <div
+          class="kit-ceremony-card kit-object"
+          onclick="openPanel('ceremony')"
+        >
+          <div class="kit-card-label">The Wedding</div>
+          <div class="kit-card-date">May 07, 2026</div>
+          <div class="kit-card-rule"></div>
+          <div class="kit-card-detail">
+            4:00 in the afternoon<br />
+            [Ceremony Venue]<br />
+            Philippines
+          </div>
+          <div class="kit-click-hint">tap for details ›</div>
+        </div>
+
+        <!-- RSVP + Details Badge row -->
+        <div class="kit-row-cards">
+          <div class="kit-rsvp-card kit-object" onclick="openPanel('rsvp')">
+            <div class="kit-rsvp-label">Reply</div>
+            <div class="kit-rsvp-text">Kindly RSVP Here</div>
+            <div class="kit-rsvp-cta">tap to respond</div>
+          </div>
+          <div
+            class="kit-details-badge kit-object"
+            onclick="openPanel('details')"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle
+                cx="11"
+                cy="11"
+                r="10"
+                fill="none"
+                stroke="#9070d0"
+                stroke-width="0.8"
+              />
+              <circle cx="11" cy="7" r="1.5" fill="#9070d0" />
+              <line
+                x1="11"
+                y1="10"
+                x2="11"
+                y2="17"
+                stroke="#9070d0"
+                stroke-width="1.5"
+                stroke-linecap="round"
+              />
+            </svg>
+            <div class="kit-badge-text">Click for<br />the Details</div>
+          </div>
+        </div>
+
+        <!-- Entourage + Gallery label -->
+        <div class="kit-bottom-row">
+          <div
+            class="kit-entourage-tag kit-object"
+            onclick="openPanel('entourage')"
+          >
+            <div class="kit-tag-hole"></div>
+            <div class="kit-tag-label">Our People</div>
+            <div class="kit-tag-text">Click for<br />the Entourage</div>
+            <div class="kit-tag-deco"></div>
+          </div>
+          <div class="kit-gallery-label">
+            <div class="kit-gallery-label-top">Prenup</div>
+            <div class="kit-gallery-label-script">memories</div>
+          </div>
+        </div>
+
+        <!-- Polaroid Gallery Strip -->
+        <div
+          class="kit-gallery-strip kit-object"
+          onclick="openPanel('gallery')"
+        >
+          <div
+            class="kit-mini-polaroid"
+            style="left: 0; top: 10px; transform: rotate(-5deg); z-index: 3"
+          >
+            <div
+              class="kit-mini-photo"
+              style="background: linear-gradient(135deg, #e0d0b8, #c8b49a)"
+            >
+              <svg
+                width="62"
+                height="62"
+                viewBox="0 0 62 62"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <ellipse
+                  cx="31"
+                  cy="38"
+                  rx="20"
+                  ry="22"
+                  fill="#b89878"
+                  opacity="0.5"
+                />
+                <circle cx="31" cy="22" r="11" fill="#c8a878" opacity="0.6" />
+              </svg>
+            </div>
+            <div class="kit-mini-caption">golden hour</div>
+          </div>
+          <div
+            class="kit-mini-polaroid"
+            style="left: 70px; top: 0; transform: rotate(3deg); z-index: 4"
+          >
+            <div
+              class="kit-mini-photo"
+              style="background: linear-gradient(135deg, #d8c8e0, #c0b0cc)"
+            >
+              <svg
+                width="62"
+                height="62"
+                viewBox="0 0 62 62"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <ellipse
+                  cx="31"
+                  cy="38"
+                  rx="20"
+                  ry="22"
+                  fill="#a090b8"
+                  opacity="0.5"
+                />
+                <circle cx="31" cy="22" r="11" fill="#b8a8c8" opacity="0.6" />
+              </svg>
+            </div>
+            <div class="kit-mini-caption">in bloom</div>
+          </div>
+          <div
+            class="kit-mini-polaroid"
+            style="left: 142px; top: 14px; transform: rotate(-2deg); z-index: 3"
+          >
+            <div
+              class="kit-mini-photo"
+              style="background: linear-gradient(135deg, #d8e8d0, #b8d0b0)"
+            >
+              <svg
+                width="62"
+                height="62"
+                viewBox="0 0 62 62"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <ellipse
+                  cx="31"
+                  cy="38"
+                  rx="20"
+                  ry="22"
+                  fill="#90b878"
+                  opacity="0.5"
+                />
+                <circle cx="31" cy="22" r="11" fill="#a8c890" opacity="0.6" />
+              </svg>
+            </div>
+            <div class="kit-mini-caption">garden joy</div>
+          </div>
+          <div
+            class="kit-mini-polaroid"
+            style="left: 214px; top: 4px; transform: rotate(4.5deg); z-index: 2"
+          >
+            <div
+              class="kit-mini-photo"
+              style="background: linear-gradient(135deg, #f0e0c8, #e0c8a8)"
+            >
+              <svg
+                width="62"
+                height="62"
+                viewBox="0 0 62 62"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <ellipse
+                  cx="31"
+                  cy="38"
+                  rx="20"
+                  ry="22"
+                  fill="#d0b088"
+                  opacity="0.5"
+                />
+                <circle cx="31" cy="22" r="11" fill="#e0c090" opacity="0.6" />
+              </svg>
+            </div>
+            <div class="kit-mini-caption">us, always</div>
+          </div>
+          <div class="kit-gallery-hint">tap to view all photos</div>
+        </div>
+
+        <!-- Panel overlay -->
+        <div
+          class="kit-panel-overlay"
+          id="kitPanel"
+          onclick="closePanel(event)"
+        >
+          <div class="kit-panel-box" id="kitPanelBox">
+            <div class="kit-panel-title" id="kitPanelTitle"></div>
+            <div class="kit-panel-body" id="kitPanelBody"></div>
+            <button class="kit-panel-close" onclick="closePanel()">
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- /.kit-wrap kit-wrap-hidden -->
     </section>
 
     <script>
+      /* ── Envelope open → reveal kit ── */
       const seal = document.getElementById("seal");
       const landing = document.getElementById("landing");
       const invitation = document.getElementById("invitation");
@@ -455,6 +1151,85 @@
           invitation.classList.add("reveal");
         }, 1300);
       });
+
+      /* ── Panel content ── */
+      const panels = {
+        couple: {
+          title: "Algin & Christine",
+          body: "Two hearts, one beautiful story.\nJoin us as we begin our forever together on May 7, 2026.",
+        },
+        ceremony: {
+          title: "The Ceremony",
+          body: "Saturday, May 07 · 2026\n4:00 in the afternoon\n[Ceremony Venue]\n[Address], Philippines\n\nReception to follow immediately after.",
+        },
+        rsvp: {
+          title: "R.S.V.P.",
+          body: "Kindly confirm your attendance by April 15, 2026.\nWe would be honoured to celebrate this day with you.",
+        },
+        details: {
+          title: "Event Details",
+          body: "Dress code: Formal / Elegant\n\nSchedule, map, and full programme\nwill be shared here soon.\n\nStay tuned!",
+        },
+        entourage: {
+          title: "Our Entourage",
+          body: "The beautiful people standing beside us\nas we say our vows.\n\nFull list coming soon.",
+        },
+        gallery: {
+          title: "Prenup Gallery",
+          body: "A collection of candid moments\nfrom our prenuptial shoot.\n\nFull gallery coming soon.",
+        },
+      };
+
+      function openPanel(key) {
+        const p = panels[key];
+        document.getElementById("kitPanelTitle").textContent = p.title;
+        document.getElementById("kitPanelBody").textContent = p.body;
+        document.getElementById("kitPanel").classList.add("show");
+      }
+      function closePanel(e) {
+        if (
+          !e ||
+          e.target === document.getElementById("kitPanel") ||
+          e.target.classList.contains("kit-panel-close")
+        ) {
+          document.getElementById("kitPanel").classList.remove("show");
+        }
+      }
+    </script>
+    <script>
+      /* ── Countdown Timer ── */
+      (function () {
+        // May 07 2026, Thursday 2:00 PM Philippine Time (UTC+8)
+        const weddingDate = new Date("2026-05-07T14:00:00+08:00");
+
+        function pad(n) {
+          return String(Math.floor(n)).padStart(2, "0");
+        }
+
+        function tick() {
+          const now = new Date();
+          const diff = weddingDate - now;
+
+          if (diff <= 0) {
+            document.getElementById("countdownTimer").style.display = "none";
+            document.getElementById("countdownDone").style.display = "block";
+            return;
+          }
+
+          const days = diff / 86400000;
+          const hours = (diff % 86400000) / 3600000;
+          const mins = (diff % 3600000) / 60000;
+          const secs = (diff % 60000) / 1000;
+
+          document.getElementById("cdDays").textContent = pad(days);
+          document.getElementById("cdHours").textContent = pad(hours);
+          document.getElementById("cdMins").textContent = pad(mins);
+          document.getElementById("cdSecs").textContent = pad(secs);
+        }
+
+        tick();
+        setInterval(tick, 1000);
+      })();
     </script>
   </body>
 </html>
