@@ -271,7 +271,7 @@ body {
   background: linear-gradient(
     to bottom,
     rgba(20, 10, 5, 0.48) 0%,
-    rgba(20, 10, 5, 0.12) 22%,
+    rgba(20, 10, 5, 0.12) 25%,
     transparent 38%,
     transparent 62%,
     rgba(20, 10, 5, 0.12) 78%,
@@ -338,7 +338,7 @@ body {
   font-family: "LoveSeed", "Pinyon Script", cursive;
   font-size: clamp(4.5rem, 16vw, 8.5rem);
   font-weight: 400;
-  color: #fdfaf5;
+  color: rgba(255, 245, 220, 1);
   line-height: 1.05;
   letter-spacing: 0.02em;
   display: block;
