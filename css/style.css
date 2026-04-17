@@ -271,7 +271,7 @@ body {
   background: linear-gradient(
     to bottom,
     rgba(20, 10, 5, 0.48) 0%,
-    rgba(20, 10, 5, 0.12) 25%,
+    rgba(20, 10, 5, 0.12) 22%,
     transparent 38%,
     transparent 62%,
     rgba(20, 10, 5, 0.12) 78%,
@@ -338,7 +338,7 @@ body {
   font-family: "LoveSeed", "Pinyon Script", cursive;
   font-size: clamp(4.5rem, 16vw, 8.5rem);
   font-weight: 400;
-  color: rgba(255, 245, 220, 1);
+  color: #4a2c14;
   line-height: 1.05;
   letter-spacing: 0.02em;
   display: block;
@@ -347,7 +347,7 @@ body {
 .hero-amp {
   font-family: "Pinyon Script", cursive;
   font-size: clamp(2.8rem, 8vw, 5rem);
-  color: #f8e8b8;
+  color: #c4a882;
   line-height: 1.1;
   display: block;
   margin: -0.1rem 0;
@@ -397,7 +397,7 @@ body {
   font-family: var(--font-body);
   font-style: italic;
   font-size: clamp(1.35rem, 4vw, 1.85rem);
-  color: rgba(255, 245, 220, 0.95);
+  color: #4a2c14;
   line-height: 1.75;
   letter-spacing: 0.03em;
   max-width: 380px;
@@ -407,7 +407,7 @@ body {
   font-family: var(--font-display);
   font-size: clamp(0.88rem, 2.2vw, 1.05rem);
   letter-spacing: 0.28em;
-  color: #fdfaf5;
+  color: #f0e8d8;
   text-transform: uppercase;
 }
 
@@ -1005,7 +1005,7 @@ body {
   font-family: var(--font-body);
   font-size: clamp(0.7rem, 2vw, 0.9rem);
   letter-spacing: 0.25em;
-  color: rgba(255, 245, 220, 0.85);
+  color: #f0e8d8;
   margin-bottom: 0.6rem;
 }
 
@@ -1016,7 +1016,7 @@ body {
 .countdown-section {
   width: 100%;
   background: var(--cream-deep);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-color: #f7f2eb;
   padding: clamp(3rem, 8vw, 5rem) 1.5rem clamp(3.5rem, 10vw, 6rem);
   display: flex;
   flex-direction: column;
@@ -1140,7 +1140,7 @@ body {
 
 .venue-section {
   width: 100%;
-  background: var(--cream-deep);
+  background: var(--cream-base);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   padding: clamp(2.8rem, 8vw, 5rem) 1.5rem clamp(3rem, 9vw, 5.5rem);
   display: flex;
@@ -1221,7 +1221,7 @@ body {
   align-self: flex-start;
   margin-left: clamp(1rem, 6vw, 2.5rem);
   background: var(--brown-dark);
-  color: rgba(255, 245, 210, 0.92);
+  color: #f7f2eb;
   font-family: var(--font-display);
   font-size: 0.58rem;
   letter-spacing: 0.4em;
@@ -1234,7 +1234,7 @@ body {
 
 /* Polaroid card */
 .vp-polaroid {
-  background: #fff;
+  background: #f7f2eb;
   padding: 10px 10px 0;
   box-shadow:
     0 10px 38px rgba(44, 26, 14, 0.18),
@@ -1245,29 +1245,27 @@ body {
   z-index: 1;
 }
 
-/* Photo area */
+/* Photo area — full image, no crop */
 .vp-photo {
   width: 100%;
-  aspect-ratio: 4 / 3;
   overflow: hidden;
-  background: linear-gradient(145deg, #e8d8c8, #d4c4b0);
+  background: var(--cream-base);
   position: relative;
 }
 .vp-photo img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  height: auto;
   display: block;
-  filter: sepia(0.08) contrast(1.04);
+  filter: sepia(0.06) contrast(1.03);
   transition: transform 0.5s ease;
 }
 .vp-polaroid:hover .vp-photo img {
-  transform: scale(1.03);
+  transform: scale(1.02);
 }
 
 /* Placeholder for missing photo */
 .vp-photo-placeholder {
+  min-height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1287,10 +1285,11 @@ body {
   inset: 0;
 }
 
-/* Caption strip (Polaroid bottom white area) */
+/* Caption strip (Polaroid bottom area) */
 .vp-caption-area {
   padding: clamp(0.7rem, 2.5vw, 1rem) 0.5rem clamp(0.9rem, 3vw, 1.3rem);
   text-align: center;
+  background: #f7f2eb;
 }
 .vp-name {
   font-family: var(--font-script);
@@ -1311,8 +1310,8 @@ body {
 /* Info block below polaroid */
 .vp-info {
   width: 100%;
-  background: var(--cream-light);
-  border: 1px solid rgba(196, 168, 130, 0.35);
+  background: #f7f2eb;
+  border: 1px solid rgba(139, 99, 64, 0.22);
   border-top: none;
   padding: clamp(1rem, 3.5vw, 1.4rem) clamp(1rem, 4vw, 1.5rem)
     clamp(1rem, 3vw, 1.2rem);
@@ -1370,12 +1369,12 @@ body {
 }
 .vp-map-btn:hover {
   background: var(--brown-dark);
-  color: rgba(255, 245, 210, 0.95);
+  color: #f7f2eb;
   border-color: var(--brown-dark);
   transform: translateY(-1px);
 }
 .vp-map-btn:hover svg {
-  color: rgba(255, 245, 210, 0.85);
+  color: rgba(247, 242, 235, 0.85);
 }
 .vp-map-btn:active {
   transform: translateY(0);
@@ -1410,11 +1409,11 @@ body {
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--brown-mid);
-  opacity: 0.65;
+  opacity: 0.7;
   padding: 0.3rem 0.8rem;
-  border: 0.5px solid rgba(196, 168, 130, 0.4);
+  border: 0.5px solid rgba(139, 99, 64, 0.3);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.5);
+  background: #f7f2eb;
   white-space: nowrap;
 }
 
